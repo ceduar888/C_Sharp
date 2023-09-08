@@ -1,0 +1,43 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+
+namespace semana1_ejercicio5
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string archivoTxt = "/Users/Alas/Desktop/Proyectos Visual Studio/C#/semana1_ejercicio5/holaC#.txt";//Ruta de tu archivo
+            mostrarTxt(archivoTxt);
+            Console.ReadKey();
+        }
+
+        static void mostrarTxt(string archivoTxt)
+        {
+            try
+            {
+                // Comprueba si el archivo existe
+                if (File.Exists(archivoTxt))
+                {
+                    // Si el archivo existe, lo lee y lo muestra en pantalla.
+                    string contenido = File.ReadAllText(archivoTxt);
+                    Console.WriteLine("Contenido del archivo:");
+                    Console.WriteLine(contenido);
+                }
+                else
+                {
+                    Console.WriteLine("El archivo no existe.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Ocurrió un error: " + ex.Message);
+            }
+        }
+    }
+}
