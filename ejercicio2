@@ -1,0 +1,32 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Diagnostics;
+using System.Threading;
+
+namespace Semana1_Ejercicio2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //EJERCICIO 2
+            //Crear un programa que permita ingresar una cantidad en minutos de tal forma que sirva
+            //como temporizador para apagar la PC de forma definitiva. Crear tambien el programa que
+            //detiene el apagado de la PC.
+
+            Console.WriteLine("Ingrese la cantidad de minutos para el temporizador de apagado:");
+            int minutos = int.Parse(Console.ReadLine());
+
+            int segundos = minutos * 60;
+            Console.WriteLine($"La PC se apagará en {minutos} minutos.");
+
+            Thread.Sleep(segundos * 1000);
+
+            Console.WriteLine("Apagando la PC...");
+            Process.Start("shutdown", "/s /f /t 0");
+        }    
+    }
+}
