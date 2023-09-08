@@ -1,0 +1,77 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Semana1_Ejercicio3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //EJERCICIO 3
+            //Crear un programa para registro de 5 empleados para una planilla de una empresa 
+            //constructora, por cada trabajador se registraran los siguientes datos:
+            //Nombre, DUI, NIT, salario por hora y horas trabajadas.
+            //Mostrar el total a pagar.
+
+            //Declarar variables
+            int numEmpleados = 5;
+
+            //Declaracion de arreglos
+            string[] nombreCompleto = new string[numEmpleados];
+            string[] DUI = new string[numEmpleados];
+            string[] NIT = new string[numEmpleados];
+            int[] horasTrabajadas = new int[numEmpleados];
+            double[] salarioHora = new double[numEmpleados];
+            double[] totalPagar = new double[numEmpleados];
+
+            Console.WriteLine("Registro de empleados de la empresa");
+
+            //hacemos un ciclo for para ingresar los datos de los empleados
+            for (int i = 0; i < numEmpleados; i++)
+            {
+                Console.WriteLine($"Empleado {i + 1}");
+
+                Console.WriteLine("Digite el nombre completo: ");
+                nombreCompleto[i] = Console.ReadLine();
+
+                Console.WriteLine("Digite el DUI: ");
+                DUI[i] = Console.ReadLine();
+
+                Console.WriteLine("Digite el NIT: ");
+                NIT[i] = Console.ReadLine();
+
+                Console.WriteLine("Digite el salario por hora: ");
+                salarioHora[i] = double.Parse(Console.ReadLine());
+
+                Console.WriteLine("Digite el numero de horas trabajadas");
+                horasTrabajadas[i] = int.Parse(Console.ReadLine());
+
+                totalPagar[i] = salarioHora[i] * horasTrabajadas[i]; 
+            }
+
+            //Imprimiendo los datos de los empleados
+            //Hacemos otro for para imprimir
+
+            Console.WriteLine("------------------------------------------------------------");
+            Console.WriteLine("-----------------PLANILLA DE EMPLEADOS----------------------");
+            Console.WriteLine("------------------------------------------------------------");
+            
+
+            for (int i = 0; i < numEmpleados; i++)
+            {
+                Console.WriteLine($"N°:{i + 1}  Nombre: {nombreCompleto[i]}");
+                Console.WriteLine($"DUI:{DUI[i]}  NIT:{NIT[i]}");
+                Console.WriteLine($"Salario/Hora:${salarioHora[i]} Horas Trabajadas:{horasTrabajadas[i]}  TOTAL:${totalPagar[i]}");
+                Console.WriteLine("____________________________________________________________");
+            }
+
+            Console.ReadKey();
+
+
+
+        }
+    }
+}
