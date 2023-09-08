@@ -1,0 +1,72 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Semana1_Ejercicio4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //EJERCICIO 4  
+            //Investigar que funcion matematica se utiliza para encontrar la raiz cuadrada de un numero y desarrollar un programa, que
+            //de solucion a ecuacionde de tipo ax^2 + bx + c = 0
+
+            //en base a la formula x = (-b +- raiz(b^2 - 4ac))/2a
+
+            //Variables
+            double x1 = 0, x2 = 0, a, b, c;
+            double x, resultado = 0;
+
+            Console.WriteLine("-------------------------------------------");
+            Console.WriteLine("Programa para calcular ecuacion cuadratica");
+            Console.WriteLine("de la forma ax^2 + bx + c = 0");
+            Console.WriteLine("-------------------------------------------");
+
+            Console.WriteLine("Digite a, b y la variable c: ");
+
+            Console.WriteLine("Digite el a: ");
+            a = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Digite el b: ");
+            b = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Digite la varibale c: ");
+            c = double.Parse(Console.ReadLine());
+
+            //Comprobar si el resultado de lo que esta dentro de la raiz es positivo, negativo o cero.
+
+            resultado = b * b  - 4 * a * c;
+
+            if (resultado > 0)
+            {
+                //Habra dos soluciones x1 y x2
+                x1 = (-b + Math.Sqrt(resultado)) / (2 * a);
+                x2 = (-b - Math.Sqrt(resultado)) / (2 * a);
+
+                Console.WriteLine($"Las dos soluciones son: x1 = {x1} y x2 = {x2}");
+            }
+            else if (resultado == 0)
+            {
+                //Si comprobar es igual a cero ya sabemos que la raiz cuadrada de 0 es 1
+                //Asi que solo dividimos -b entre 2a
+                x = (-b) / (2 * a);
+
+                Console.WriteLine($"La solucion doble es: x = {x}");
+            }
+            else
+            {
+                Console.WriteLine("No existe solucion dentro de los numeros reales");
+            }
+
+            Console.ReadKey();
+
+
+
+
+
+        }
+    }
+}
